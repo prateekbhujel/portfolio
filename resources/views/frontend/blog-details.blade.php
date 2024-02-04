@@ -1,6 +1,6 @@
 @extends('frontend.layouts.layout')
 
-@section('title', 'Home')
+@section('title', 'Blog Detail')
 
 @section('content')
 
@@ -8,14 +8,14 @@
 <header class="site-header parallax-bg">
     <div class="container">
         <div class="row d-flex align-items-center">
-            <div class="col-sm-7">
-                <h2 class="title">Blog</h2>
+            <div class="col-sm-8">
+                <h2 class="title">Blog Details</h2>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <div class="breadcrumbs">
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li>Blog</li>
+                        <li>Portfolio</li>
                     </ul>
                 </div>
             </div>

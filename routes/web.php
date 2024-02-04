@@ -15,7 +15,11 @@ Route::get('/blog', function () {
 
 Route::get('/blog-details', function () {
     return view('frontend.blog-details');
-})->name('blog');
+});
+
+Route::get('/protfolio-details', function () {
+    return view('frontend.protfolio-details');
+});
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
