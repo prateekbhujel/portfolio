@@ -86,3 +86,7 @@ Follow these steps to set up the project on your local machine:
     ```
 
 11. Visit `http://localhost:8000` in your browser to see your personal portfolio.
+
+### Packages and all used here..
+   1. Bootstrap, jQuery, Stilea Admin Template, FontAwesome (and Laravel Breeze)
+   2. Laravel toastr (yoeunes/toastr)

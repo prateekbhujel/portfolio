@@ -4,10 +4,10 @@
   <ul class="navbar-nav navbar-right">
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
       <img alt="image" src="public/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-      <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+      <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-title">Logged in 5 min ago</div>
-        <a href="features-profile.html" class="dropdown-item has-icon">
+        <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
           <i class="far fa-user"></i> Profile
         </a>
         <a href="features-settings.html" class="dropdown-item has-icon">
@@ -33,15 +33,15 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index.html">Stisla</a>
+      <a href="index.html">Admin</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="index.html">St</a>
+      <a href="{{ route('dashboard') }}">PB</a>
     </div>
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
         <li class="nav-item active">
-          <a href="index.html" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+          <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         </li>
         <li class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Dropdown</span></a>
