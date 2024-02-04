@@ -7,7 +7,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.index');
-});
+})->name('home');
+
+Route::get('/blog', function () {
+    return view('frontend.blog');
+})->name('blog');
+
+Route::get('/blog-details', function () {
+    return view('frontend.blog-details');
+})->name('blog');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

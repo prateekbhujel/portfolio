@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
 <div class="container">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="{{ route('home') }}">
         <img src="images/logo.png" alt="{{ config('app.name') }}">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,7 +28,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#blog-page">Blog <i class="fas fa-angle-down"></i></a>
                 <ul class="sub_menu">
-                    <li><a href="blog.html">Blog Grid</a></li>
+                    <li><a href="{{ route('blog') }}">Blog Grid</a></li>
                 </ul>
             </li>
             <li class="nav-item">
