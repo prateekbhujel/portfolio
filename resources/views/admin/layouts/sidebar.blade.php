@@ -33,7 +33,7 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index.html">Admin</a>
+      <a href="{{ route('dashboard') }}">Admin</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="{{ route('dashboard') }}">PB</a>
