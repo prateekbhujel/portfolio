@@ -48,6 +48,12 @@
                       Email Password Reset Link
                     </button>
                   </div>
+                  <div class="form-group text-center">
+                    <a href="{{ route('login') }}" class="text-dark text-decoration-none">
+                        <i class="fas fa-arrow-left me-2"></i> Back
+                    </a>
+                </div>
+                
                 </form>
               </div>
             </div>
