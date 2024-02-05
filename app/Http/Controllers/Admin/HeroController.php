@@ -104,7 +104,7 @@ class HeroController extends Controller
                 'sub_title' => $request->sub_title,
                 'btn_text'  => $request->btn_text,
                 'btn_url'   => $request->btn_url,
-                'image'     => isset($imagePath) ? $imagePath : '',
+                'image'     => $imagePath,
             ]
         );
     

@@ -52,7 +52,8 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Button Url</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="btn_url" class="form-control" value="{{ old('btn_url', $hero->btn_url ?? '') }}" placeholder="Button Url...">
+                        <span>Type the route name here without double or single quotes Example: home </span>
+                        <input type="text" name="btn_url" class="form-control" value="{{ old('btn_url', $hero->btn_url ?? '') }}" placeholder="home">
                       </div>
                     </div>
                     @if ($hero && $hero->image)
