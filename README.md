@@ -90,3 +90,4 @@ Follow these steps to set up the project on your local machine:
 ### Packages and all used here..
    1. Bootstrap, jQuery, Stilea Admin Template, FontAwesome (and Laravel Breeze)
    2. Laravel toastr (yoeunes/toastr)
+   3. Image Intervention

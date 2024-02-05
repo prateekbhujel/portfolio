@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="{{ asset('public/assets/css/plugins/bootstrap-timepicker.min.css') }}">
   <link rel="stylesheet" href="{{ asset('public/assets/css/plugins/daterangepicker.css') }}">
   <link rel="stylesheet" href="{{ asset('public/assets/css/plugins/select2.min.css') }}">
+  
+  {{-- Toaster css cdn link --}}
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
@@ -80,6 +83,44 @@
   <script src="{{ asset('public/assets/js/page/features-post-create.js') }}"></script>
   <!-- Page Specific JS File -->
   <script src="{{ asset('public/assets/js/page/forms-advanced-forms.js') }}"></script>
+
+  {{-- Toaster.js minified JS link cdn --}}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+  {{-- Show Dyanamic Validation errors --}}
+  <script>
+    @if(!empty($errors->all()))
+      @foreach ($errors->all() as $error)
+        toastr.error("{{ $error }}")
+      @endforeach
+    @endif
+  </script>
+  
+  <script>
+    $(document).ready(function () {
+        // Listen for file input change event
+        $('#customFile').on('change', function () {
+            // Read the selected file
+            var file = this.files[0];
+            
+            if (file) {
+                // Create a FileReader object
+                var reader = new FileReader();
+
+                // Set the image source when the file is loaded
+                reader.onload = function (e) {
+                    $('#customImg').attr('src', e.target.result);
+                };
+
+                // Read the file as Data URL
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+
 </body>
+
 </html>
 
