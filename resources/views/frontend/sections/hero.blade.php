@@ -1,14 +1,9 @@
-<header class="header-area parallax-bg" id="home-page" @isset($hero->image) style="background-image: url('{{ asset("public$hero->image") }}')" @endisset>
+<header class="header-area parallax-bg" id="home-page" style="background-image: url('{{ url("public/$hero->image") }}') no-repeat scroll top center/cover">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="header-text">
                     <h3 class="typer-title wow fadeInUp" data-wow-delay="0.2s">
-                        @if ($hero)
-                            {{ $hero->title }}
-                        @else
-                            I'm ui/ux designer
-                        @endif
                     </h3>
                     <h1 class="title wow fadeInUp" data-wow-delay="0.3s">
                         @if ($hero)
@@ -38,3 +33,21 @@
         </div>
     </div>
 </header>
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            @if(isset($typer_titles) && !$typer_titles->isEmpty())
+                var titles = @json($typer_titles->pluck('title')->toArray());
+                $('.header-area .typer-title').typer(titles);
+            @else
+                var textOne = "I'm ui/ux designer.",
+                    textTwo = "Let's work together.",
+                    textThree = "I can create awesome stuff.";
+                $('.header-area .typer-title').typer([textOne, textTwo, textThree]);
+            @endif
+        });
+    </script>
+@endpush
+
+

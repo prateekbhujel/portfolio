@@ -13,7 +13,7 @@
 <!-- Service-Area-End -->
 
 <!-- About-Area-Start -->
-    @include('frontend.sections.hero')
+    @include('frontend.sections.about')
 <!-- About-Area-End -->
 
 <!-- Portfolio-Area-Start -->
