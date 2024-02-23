@@ -24,11 +24,10 @@ class TyperTitleDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
                 return '<a href="'.route('admin.typer-title.edit', $query->id).'" class="btn btn-primary me-2"><i class="fas fa-edit me-2"></i>Edit</a>
-                        <a href="'.route('admin.typer-title.destroy', $query->id).'" class="btn btn-danger"><i class="fas fa-times me-2"></i>Delete</a>';
+                        <a href="'.route('admin.typer-title.destroy', $query->id).'" class="btn btn-danger delete-item"><i class="fas fa-times me-2"></i>Delete</a>';
             })
             ->setRowId('id');
     }
-    //46. start of 200th video.
 
     /**
      * Get the query source of dataTable.
@@ -48,7 +47,7 @@ class TyperTitleDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->selectStyleSingle()
                     ->buttons([]);
     }

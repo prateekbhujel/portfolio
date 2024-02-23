@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   <title>Admin | @yield('title', 'Protfolio')</title>
 
@@ -88,7 +89,9 @@
 
   {{-- Toaster.js minified JS link cdn --}}
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+  
+  {{-- SweetAlert2 minified cdn link --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   {{-- Show Dyanamic Validation errors --}}
   <script>
@@ -120,7 +123,57 @@
             }
         });
     });
-</script>
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      // CSRF-Token
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+    
+      // Sweet Alert
+      $('body').on('click', '.delete-item', function(e){
+        e.preventDefault();
+        let deleteUrl = $(this).attr('href');
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              type: 'DELETE',
+              url: deleteUrl,
+              success: function(data){
+                Swal.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                ).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.reload();
+                  }
+                });
+              },
+              error: function(xhr, status, error){
+                console.log(error);
+              }
+            });
+          }
+        });
+      })
+    })
+  </script>
+  
+
+
   @stack('scripts')
 </body>
 

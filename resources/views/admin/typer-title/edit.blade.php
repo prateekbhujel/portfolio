@@ -20,13 +20,14 @@
               <h4>Create Typer-Title</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.typer-title.store') }}" method="POST">
+                <form action="{{ route('admin.typer-title.update', $typer_title->id) }}" method="POST">
                     @csrf
-
+                    @method('PUT')
+                    
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="{{ fake()->sentence }}">
+                        <input type="text" name="title" class="form-control" value="{{ old('title', $typer_title->title) }}" placeholder="{{ fake()->sentence }}">
                       </div>
                     </div>
 
