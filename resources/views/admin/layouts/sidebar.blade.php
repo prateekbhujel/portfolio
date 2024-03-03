@@ -60,7 +60,8 @@
             <li><a class="nav-link" href="{{ route('admin.hero.index') }}">Hero Section</a></li>
           </ul>
         </li>
-        {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> --}}
+
+        <li><a class="nav-link" href="{{ route('admin.services.index') }}"><i class="far fa-square"></i> <span>Services</span></a></li>
 
       </ul>
   </aside>

@@ -45,14 +45,6 @@ class TyperTitleController extends Controller
     }//End Method
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(TyperTitle $typer_title)
