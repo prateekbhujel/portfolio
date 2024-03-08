@@ -23,8 +23,14 @@ class ServiceDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
         ->addColumn('action', function($query){
-            return '<a href="'.route('admin.services.edit', $query->id).'" class="btn btn-primary me-2"><i class="fas fa-edit me-2"></i>Edit</a>
-                    <a href="'.route('admin.services.destroy', $query->id).'" class="btn btn-danger delete-item"><i class="fas fa-times me-2"></i>Delete</a>';
+            return '<a href="'.route('admin.services.edit', $query->id).'" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="'.route('admin.services.destroy', $query->id).'" class="btn btn-danger delete-item"><i class="fas fa-times me-2"></i></a>';
+        })
+        ->addColumn('created_at', function($data){
+            return $data->created_at->format('jS M, Y'); 
+        })
+        ->addColumn('updated_at', function($data){
+            return $data->updated_at->format('jS M, Y'); 
         })
         ->setRowId('id');
     }
@@ -47,16 +53,9 @@ class ServiceDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+                    ->buttons([]);
     }
 
     /**
@@ -65,16 +64,16 @@ class ServiceDataTable extends DataTable
     public function getColumns(): array
     {
         return [
+            Column::make('id')->width(10),
+            Column::make('name')->width(100),
+            Column::make('description')->width(555),
+            Column::make('created_at')->width(80),
+            Column::make('updated_at')->width(80),            
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('name'),
-            Column::make('description'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            ->exportable(false)
+            ->printable(false)
+            ->width(105)
+            ->addClass('text-center'),
         ];
     }
 
