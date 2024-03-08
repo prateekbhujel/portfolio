@@ -6,7 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ config('app.name') }} | @yield('title', 'Protfolio')</title>
-	{{-- <link rel="shortcut icon" type="image/ico" href="images/favicon.png" /> --}}
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.png" />
 	<link rel="stylesheet" href="{{ asset('public/frontend/assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('public/frontend/assets/css/normalize.css') }}">
 	<link rel="stylesheet" href="{{ asset('public/frontend/assets/css/style-plugin-collection.css') }}">
@@ -34,12 +34,12 @@
 	</div>
 
 
-	<script src="{{ ('public/frontend/assets/js/vendor/jquery-min.js') }}"></script>
-	<script src="{{ ('public/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
-	<script src="{{ ('public/frontend/assets/js/contact-form.js') }}"></script>
-	<script src="{{ ('public/frontend/assets/js/jquery-plugin-collection.js') }}"></script>
-	<script src="{{ ('public/frontend/assets/js/vendor/modernizr.js') }}"></script>
-	<script src="{{ ('public/frontend/assets/js/main.js') }}"></script>
+	<script src="{{ asset('public/frontend/assets/js/vendor/jquery-min.js') }}"></script>
+	<script src="{{ asset('public/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ asset('public/frontend/assets/js/contact-form.js') }}"></script>
+	<script src="{{ asset('public/frontend/assets/js/jquery-plugin-collection.js') }}"></script>
+	<script src="{{ asset('public/frontend/assets/js/vendor/modernizr.js') }}"></script>
+	<script src="{{ asset('public/frontend/assets/js/main.js') }}"></script>
 	@stack('scripts')
 </body>
 

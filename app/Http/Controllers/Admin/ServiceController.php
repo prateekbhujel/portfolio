@@ -16,7 +16,8 @@ class ServiceController extends Controller
     public function index(ServiceDataTable $dataTable)
     {
         return $dataTable->render('admin.services.index');
-    }
+        
+    }//End Method
 
     /**
      * Show the form for creating a new resource.

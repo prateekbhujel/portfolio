@@ -56,7 +56,17 @@ class HeroController extends Controller
             //Modifiying The Image
             $Imgmanager = new Image(new Driver);
             $img = $Imgmanager->read($image->getRealPath());
-            $img->resize(1850, 850);
+
+            // Define the image dimensions
+            $imageWidth = $img->width();
+            $imageHeight = $img->height();
+
+            $x = (int) ($imageWidth / 3);
+            $y = (int) ($imageHeight / 10);
+
+            $dominantColor = $img->pickColor($x, $y);
+
+            $img->resizeCanvasRelative(height: 850, width: 1850, background: $dominantColor, position: 'right');
     
             // Save the modified image
             $imageName = rand() . $image->getClientOriginalName();

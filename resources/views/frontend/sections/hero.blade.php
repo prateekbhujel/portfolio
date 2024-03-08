@@ -1,4 +1,4 @@
-<header class="header-area parallax-bg" id="home-page" style="background-image: url('{{ asset("public/$hero->image") }}?v={{ time() }}') no-repeat scroll top center/cover;">
+<header class="header-area parallax-bg" id="home-page" style="background: url('{{ asset("public/$hero->image") }}') no-repeat scroll top center/cover;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
