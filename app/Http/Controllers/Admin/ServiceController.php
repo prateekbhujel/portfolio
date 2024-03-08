@@ -6,6 +6,7 @@ use App\DataTables\ServiceDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ServiceController extends Controller
 {
@@ -43,34 +44,36 @@ class ServiceController extends Controller
     }//End Method
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Service $service)
     {
-        //
-    }
+        return view('admin.services.edit', compact('service'));
+
+    }//End Method
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Service $service)
     {
-        //
-    }
+         $service->update($request->validate([
+            'name'          => ['required', Rule::unique('services', 'name')->whereNot('name', $service->name)],
+            'description'   => ['required', Rule::unique('services', 'description')->whereNot('description', $service->description)],
+         ]));
+
+         toastr()->success('Services Edited Successfully', 'Congrats');
+        return to_route('admin.services.index');
+    }//End Method
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Service $service)
     {
-        //
-    }
+
+        $service->delete();
+        toastr()->success('Service Data Deleted Successfully', 'Info');
+
+    }//End Method
 }
