@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -39,5 +40,6 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('hero', HeroController::class);
     Route::resource('typer-title', TyperTitleController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('about', AboutController::class);
 
 });//End Admin Resource Routes
