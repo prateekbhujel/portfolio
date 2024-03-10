@@ -6,6 +6,7 @@ use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -38,7 +39,7 @@ class CategoryController extends Controller
        ]);
        Category::create([
         'name' => $request->name,
-        'slug' => \Str::slug($request->name),
+        'slug' => Str::slug($request->name),
         ]);
 
         toastr()->success('Category Created Successfully.');
@@ -47,34 +48,40 @@ class CategoryController extends Controller
     }//End Method
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
-    }
+        return view('admin.protfolio-category.edit', compact('category'));
+
+    }//End Method
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required|max:20|min:2',
+        ]);
+
+        $category->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        toastr()->success('Category Updated Successfully');
+        return to_route('admin.category.index');
+
+    }//End Method
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
-    }
+        $category->delete();
+        toastr()->info('Caegory Data Deleted Successfully', 'Info');
+        
+    }//End Method   
 }
