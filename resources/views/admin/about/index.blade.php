@@ -19,15 +19,15 @@
               <h4>Update About Section</h4>
             </div>
             <div class="card-body">
-                <form action="{{route('admin.hero.update', 1)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.about.update', 1)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
-                    {{-- @if (!empty($hero->updated_at))
+                    @if (!empty($about->updated_at))
                       <div class='my-4 badge bg-warning text-dark'>
                         <i class="fas fa-clock me-2"></i>  Last Updated On: {{ $hero->updated_at->diffForHumans() }}
                       </div>
-                    @endif --}}
+                    @endif
 
                     <div class="form-group row mb-4">
                         <label for="thumbnail" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
@@ -59,7 +59,7 @@
                         <label for="" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Resume Upload</label>
                         <div class="col-sm-12 col-md-7">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
+                                <input type="file" name="resume" class="custom-file-input" id="customFile">
                                 <label for="customFile" class="custom-file-label">Choose File</label>
                             </div>
                         </div>

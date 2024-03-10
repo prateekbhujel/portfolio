@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\About;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager as Image;
 
 class AboutController extends Controller
 {
@@ -12,55 +15,43 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('admin.about.index');
+        $about = About::all();
+
+        return view('admin.about.index',compact('about'));
 
     }//End Method
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $request->validate([
+            'title'         => 'required|max:200',
+            'description'   => 'required|max:1600',
+            'image'         => 'required|image',
+            'resume'        => 'mimes:pdf,csv,txt,docx|max:10000'
+        ]);
+        
+        $about      = About::first();
+        $imagePath  = handleUpload('image', $about);
+        $resumePath = handleUpload('resume', $about);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+         About::updateOrCreate(
+            [
+                'id'         => $id
+            ],
+            [
+                'title'       => $request->title,
+                'description' => $request->description,
+                'image'       => (!empty($imagePath) ? $imagePath : $about->image),
+                'resume'      => (!empty($resumePath) ? $resumePath : $about->resumePath), 
+            ]
+         );
+    
+         toastr()->success('Updated Successfully.', 'Congrats');
+         return redirect()->back();
+    }//End Method
+     
 }
