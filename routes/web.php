@@ -36,10 +36,18 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 /** Admin Resoruce Routes. **/
-Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function()
+{
+    /** Hero Section Route**/
     Route::resource('hero', HeroController::class);
     Route::resource('typer-title', TyperTitleController::class);
+
+    /** Services Section Route**/
     Route::resource('services', ServiceController::class);
+
+    /** About Section Download Resume Route**/
+    Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
+    /** About Section Route**/
     Route::resource('about', AboutController::class);
 
 });//End Admin Resource Routes

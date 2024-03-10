@@ -24,8 +24,8 @@
                     @method('PUT')
 
                     @if (!empty($about->updated_at))
-                      <div class='my-4 badge bg-warning text-dark'>
-                        <i class="fas fa-clock me-2"></i>  Last Updated On: {{ $hero->updated_at->diffForHumans() }}
+                      <div class='my-3 badge bg-warning text-dark'>
+                        <i class="fas fa-clock me-2"></i>  Last Updated On: {{ $about->updated_at->diffForHumans() }}
                       </div>
                     @endif
 
@@ -34,7 +34,7 @@
                         <div class="col-sm-12 col-md-7">
                             <div id="image-preview" class="image-preview">
                                 <label for="image-label" class="image-label">Choose Image</label>
-                                <input type="file"  name="image" id="image-upload">
+                                <input type="file" name="image" id="image-upload">
                             </div>
                         </div>
                     </div>
@@ -42,19 +42,27 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="Give Your Title...">
+                        <input type="text" name="title" class="form-control" value="{{ old('title', $about->title) }}" placeholder="Give Your Title...">
                       </div>
                     </div>
 
                     <div class="form-group row mb-4">
                         <label for="description" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
                         <div class="col-sm-12 col-md-7">
-                            <textarea name="description" id="description" class="summernote"></textarea>
+                            <textarea name="description" id="description" class="summernote">{!! $about->description !!}</textarea>
                         </div>
                     </div>
-
- 
                     
+                    @if($about->resume)
+                      <div class="form-group row mb-4">
+                        <label for="" class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                        <div class="col-sm-12 col-md-7">
+                            <div>
+                              <i class="fas fa-file-pdf" style="font-size: 100px;"></i><br><span class="text-muted">{{ $about->resume }}</span>
+                            </div>
+                        </div>
+                      </div>
+                    @endif
                     <div class="form-group row mb-4">
                         <label for="" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Resume Upload</label>
                         <div class="col-sm-12 col-md-7">
@@ -68,7 +76,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
-                        <button class="btn btn-dark mt-4">Update</button>
+                        <button class="btn btn-primary mt-4">Update</button>
                       </div>
                     </div>
                 </form>
@@ -82,3 +90,17 @@
   
   
 @endsection
+
+@push('scripts')
+    <script>
+        
+      $(document).ready(function(){
+          $('#image-preview').css({
+            'background-image': 'url("{{ asset('public/' . $about->image) }}")',
+            'background-size': 'cover',
+            'background-position': 'center'
+          });
+        });
+
+    </script>
+@endpush

@@ -15,7 +15,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::all();
+        $about = About::first();
+        $resume = $about->resume;
+        $result = preg_replace('/\/uploads\/\d+/', '', $resume);
+        $about->resume = $result;
 
         return view('admin.about.index',compact('about'));
 
@@ -30,7 +33,7 @@ class AboutController extends Controller
         $request->validate([
             'title'         => 'required|max:200',
             'description'   => 'required|max:1600',
-            'image'         => 'required|image',
+            'image'         => 'image|max:5000|mimes:jpeg,png',
             'resume'        => 'mimes:pdf,csv,txt,docx|max:10000'
         ]);
         
@@ -52,6 +55,14 @@ class AboutController extends Controller
     
          toastr()->success('Updated Successfully.', 'Congrats');
          return redirect()->back();
+    }//End Method
+
+    public function resumeDownload()
+    {
+        $about = About::first();
+
+        return response()->download(public_path($about->resume));
+    
     }//End Method
      
 }
