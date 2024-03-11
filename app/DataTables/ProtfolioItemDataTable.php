@@ -29,9 +29,16 @@ class ProtfolioItemDataTable extends DataTable
         ->addColumn('created_at', function($data){
             return $data->created_at->format('jS M, Y'); 
         })
+        ->addColumn('image', function($data){
+            return '<img src="'.asset('public/'.$data->image).'" style="max-width:100px;"></img>';
+        })
         ->addColumn('updated_at', function($data){
             return $data->updated_at->format('jS M, Y'); 
         })
+        ->addColumn('category', function($query){
+            return $query->category->name;
+        })
+        ->rawColumns(['image', 'action'])
         ->setRowId('id');
     }
 
@@ -64,15 +71,19 @@ class ProtfolioItemDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('id')->width(10),
+            Column::make('image')->width(100),
+            Column::make('title'),
+            Column::make('category'),
+            Column::make('client'),
+            Column::make('website'),
             Column::make('created_at'),
-            Column::make('updated_at'),
+            // Column::make('updated_at'),
+            Column::computed('action')
+            ->exportable(false)
+            ->printable(false)
+            ->width(100)
+            ->addClass('text-center'),
         ];
     }
 

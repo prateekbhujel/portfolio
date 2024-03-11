@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\ProtfolioItemDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\ProtfolioItem;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class ProtfolioItemController extends Controller
      */
     public function create()
     {
-        return view('admin.protfolio.item.create');
+        $categories = Category::all();
+        return view('admin.protfolio.item.create', compact('categories'));
     
     }//End Method
 
@@ -32,8 +34,22 @@ class ProtfolioItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    
+        $validated = $request->validate([
+                        'image'       => 'required|image|max:5500',
+                        'title'       => 'required|max:200',
+                        'description' => 'required',
+                        'category_id' => 'required|numeric',
+                        'client'      => 'max:300',
+                        'website'      => 'url|nullable',
+                    ]);
+        
+        $validated['image'] =  handleUpload('image');
+        
+        ProtfolioItem::create($validated);
+        
+        toastr()->success('Item Created Successfully.', 'Success');
+        return to_route('admin.protfolio-item.index');
+
     }//End Method
 
     /**
