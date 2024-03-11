@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ProtfolioItemController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -40,18 +41,21 @@ require __DIR__.'/auth.php';
 Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function()
 {
     /** Hero Section Route**/
-    Route::resource('hero', HeroController::class);
-    Route::resource('typer-title', TyperTitleController::class);
+    Route::resource('hero', HeroController::class)->except(['show', 'store', 'destroy', 'edit']);
+    Route::resource('typer-title', TyperTitleController::class)->except(['show']);
 
     /** Services Section Route**/
-    Route::resource('services', ServiceController::class);
+    Route::resource('services', ServiceController::class)->except(['show']);
 
     /** About Section Download Resume Route**/
     Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
     /** About Section Route**/
-    Route::resource('about', AboutController::class);
+    Route::resource('about', AboutController::class)->except(['show', 'edit', 'store', 'destroy']);
 
     /** Category Route for Protfolio Section **/
-    Route::resource('category', CategoryController::class);
+    Route::resource('category', CategoryController::class)->except(['show']);
+
+    /**  Protfolio Item Route for Protfolio Section **/
+    Route::resource('protfolio-item', ProtfolioItemController::class)->except(['show']);
 
 });//End Admin Resource Routes

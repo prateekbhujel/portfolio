@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(CategoryDataTable $dataTable)
     {
 
-        return $dataTable->render('admin.protfolio-category.index');
+        return $dataTable->render('admin.protfolio.category.index');
 
     }//End Method
 
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.protfolio-category.create');
+        return view('admin.protfolio.category.create');
 
     }//End Method
 
@@ -52,7 +52,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.protfolio-category.edit', compact('category'));
+        return view('admin.protfolio.category.edit', compact('category'));
 
     }//End Method
 
