@@ -10,6 +10,7 @@ use App\Models\About;
 use App\Models\Category;
 use App\Models\PortfolioSectionSetting as Setting;
 use App\Models\ProtfolioItem;
+use App\Models\SkillSectionSetting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,7 @@ class HomeController extends Controller
         $portfolioTitle      = Setting::first();
         $portfolioCategories = Category::all();
         $portfolioItems      = ProtfolioItem::all();
+        $skill               = SkillSectionSetting::first();
         
        return view('frontend.home', 
               compact(
@@ -33,7 +35,8 @@ class HomeController extends Controller
                     'about', 
                     'portfolioTitle',
                     'portfolioCategories',
-                    'portfolioItems'
+                    'portfolioItems',
+                    'skill'
                 ));
 
     }//End Method

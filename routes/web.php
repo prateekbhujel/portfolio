@@ -24,9 +24,6 @@ Route::get('/blog-details', function () {
     return view('frontend.blog-details');
 });
 
-Route::get('/protfolio-details', function () {
-    return view('frontend.protfolio-details');
-}); 
 
 Route::get('portfolio-details/{portfolioItem}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 
