@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProtfolioItemController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -65,5 +66,8 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
 
     /**  Protfolio Section Setting Route for Protfolio Section **/
     Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class)->only(['index','update']);
+    
+    /**  Skill Sectio Setting Route **/
+    Route::resource('skill-section-setting', SkillSectionSettingController::class)->only(['index','update']);
 
 });//End Admin Resource Routes
