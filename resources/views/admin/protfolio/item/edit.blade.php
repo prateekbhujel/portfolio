@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('title','Create Item')
+@section('title','Edit Item')
 
 @section('content')
 <section class="section">
@@ -8,7 +8,7 @@
       <div class="section-header-back">
         <a href="{{ route('admin.protfolio-item.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
-      <h1>Create Item</h1>
+      <h1>Edit Item</h1>
 
     </div>
 
@@ -17,11 +17,12 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>New Item</h4>
+              <h4>Edit Item</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.protfolio-item.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.protfolio-item.update', $protfolio_item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
 
                     <div class="form-group row mb-4">
                         <label for="thumbnail" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
@@ -36,7 +37,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="Give Your Title...">
+                        <input type="text" name="title" class="form-control" value="{{ old('title', $protfolio_item->title) }}" placeholder="Give Your Title...">
                       </div>
                     </div>
 
@@ -45,7 +46,7 @@
                         <div class="col-sm-12 col-md-7">
                             <select name="category_id" id="category_id" class="form-control selectric">
                               @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                                <option value="{{ $category->id }}" @selected($category->id == $protfolio_item->category_id)>{{ $category->name }}</option>
                               @endforeach  
 
                             </select>
@@ -55,21 +56,21 @@
                     <div class="form-group row mb-4">
                         <label for="description" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
                         <div class="col-sm-12 col-md-7">
-                            <textarea name="description" id="description" class="summernote"></textarea>
+                            <textarea name="description" id="description" class="summernote">{{ old('description', $protfolio_item->description) }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name of Client</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" name="client" class="form-control" value="{{ old('client') }}" placeholder="Client Name">
+                          <input type="text" name="client" class="form-control" value="{{ old('client', $protfolio_item->client) }}" placeholder="Client Name">
                         </div>
                     </div>
 
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Address</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" name="website" class="form-control" value="{{ old('website') }}" placeholder="example.com">
+                          <input type="text" name="website" class="form-control" value="{{ old('website',$protfolio_item->website) }}" placeholder="example.com">
                         </div>
                     </div>
 
@@ -96,7 +97,7 @@
         
       $(document).ready(function(){
           $('#image-preview').css({
-            'background-image': 'url("{{ asset('public/') }}")',
+            'background-image': 'url("{{ asset('public/' . $protfolio_item->image) }}")',
             'background-size': 'cover',
             'background-position': 'center'
           });
