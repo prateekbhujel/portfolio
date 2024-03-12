@@ -37,5 +37,12 @@ class HomeController extends Controller
                 ));
 
     }//End Method
+    
+
+    public function showPortfolio(ProtfolioItem $portfolioItem)
+    {
+        return view('frontend.protfolio-details', compact('portfolioItem'));
+
+    }//End Method
 
 }

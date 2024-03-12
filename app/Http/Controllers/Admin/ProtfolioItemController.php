@@ -40,7 +40,8 @@ class ProtfolioItemController extends Controller
                         'description' => 'required',
                         'category_id' => 'required|numeric',
                         'client'      => 'max:300',
-                        'website'      => 'url|nullable',
+                        'website'     => 'url|nullable',
+                        'created_at'  => 'required|date',
                     ]);
         
         $validated['image'] =  handleUpload('image');
@@ -75,6 +76,7 @@ class ProtfolioItemController extends Controller
             'category_id' => 'required|numeric',
             'client'      => 'max:300',
             'website'      => 'url|nullable',
+            'created_at'  => 'required|date',
         ]);
 
         $validated['image'] =  (!empty(handleUpload('image', $protfolio_item))) ? handleUpload('image', $protfolio_item) : $protfolio_item->image;
@@ -93,8 +95,6 @@ class ProtfolioItemController extends Controller
     {
         $protfolio_item->delete();
         deleteFileIfExist($protfolio_item->image);
-        
-        toastr()->info('Data Deleted Successfully', 'Info');
 
     }//End Method
 }

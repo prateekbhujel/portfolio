@@ -74,7 +74,6 @@ class ServiceController extends Controller
     {
 
         $service->delete();
-        toastr()->success('Service Data Deleted Successfully', 'Info');
 
     }//End Method
 }

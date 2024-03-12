@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
-
+/** Fornt-End All Routes **/
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/blog', function () {
@@ -26,6 +26,10 @@ Route::get('/blog-details', function () {
 Route::get('/protfolio-details', function () {
     return view('frontend.protfolio-details');
 }); 
+
+Route::get('portfolio-details/{portfolioItem}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+
+/** End Fornt-End All Routes **/
 
 /** Admin Profile Routes**/
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');

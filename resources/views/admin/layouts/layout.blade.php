@@ -154,15 +154,21 @@
               type: 'DELETE',
               url: deleteUrl,
               success: function(data){
-                Swal.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                ).then((result) => {
-                  if (result.isConfirmed) {
+                if(data.status == 'error'){
+                  swal.fire(
+                    'Error!',
+                    'This Item is on use!',
+                    'error' 
+                  )
+                }
+                else {
+                  Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                  )
                     window.location.reload();
-                  }
-                });
+                }
               },
               error: function(xhr, status, error){
                 console.log(error);

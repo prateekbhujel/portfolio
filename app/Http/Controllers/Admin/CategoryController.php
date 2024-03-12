@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\ProtfolioItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -80,8 +81,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        toastr()->info('Caegory Data Deleted Successfully', 'Info');
+        $hasItem = ProtfolioItem::where('category_id', $category->id)->count();
+        if($hasItem == 0){
+            $category->delete();
+            return true;
+        }
+
+        return response(['status' => 'error']);
         
     }//End Method   
 }

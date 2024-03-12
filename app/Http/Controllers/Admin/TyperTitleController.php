@@ -73,7 +73,6 @@ class TyperTitleController extends Controller
     public function destroy(TyperTitle $typer_title)
     {
         $typer_title->delete();
-        toastr()->success('Typer Title Data Deleted Successfully', 'Info');
 
     }//End Method
 }

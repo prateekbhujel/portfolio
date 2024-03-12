@@ -74,6 +74,13 @@
                     </div>
 
                     <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Address</label>
+                      <div class="col-sm-12 col-md-7">
+                        <input type="date" name="created_at" class="form-control" value="{{ old('created_at',$protfolio_item->created_at) }}" >
+                      </div>
+                  </div>
+                  
+                    <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
                         <button class="btn btn-dark text-light mt-4">Save</button>
