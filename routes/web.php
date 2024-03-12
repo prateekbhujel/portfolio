@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProtfolioItemController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -57,5 +58,8 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
 
     /**  Protfolio Item Route for Protfolio Section **/
     Route::resource('protfolio-item', ProtfolioItemController::class)->except(['show']);
+
+    /**  Protfolio Section Setting Route for Protfolio Section **/
+    Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class)->only(['index','update']);
 
 });//End Admin Resource Routes
