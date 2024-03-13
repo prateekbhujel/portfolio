@@ -33,7 +33,7 @@ class SkillItemController extends Controller
     public function store(Request $request)
     {
         SkillItem::create($request->validate([
-            'name'       => 'required|max:20',
+            'name'       => 'required|max:50',
             'percentage' => 'required|numeric|max:100'
         ]));
 
@@ -57,7 +57,7 @@ class SkillItemController extends Controller
     public function update(Request $request, SkillItem $skill_section_item)
     {
         $skill_section_item->update($request->validate([
-                'name'       => 'required|max:20',
+                'name'       => 'required|max:50',
                 'percentage' => 'required|numeric|max:100',
         ]));
 
