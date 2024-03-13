@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperinceController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\FeedbackSectionSettingController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -75,5 +76,7 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     
     /**  Feedback Section Route **/
     Route::resource('feedback', FeedbackController::class)->except(['show']);
+    /** Feedback Section Setting Route **/
+    Route::resource('feedback-section-setting', FeedbackSectionSettingController::class)->only(['index','update']);
 
 });//End Admin Resource Routes
