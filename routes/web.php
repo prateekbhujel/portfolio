@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProtfolioItemController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -66,5 +67,8 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     
     /**  Skill Sectio Setting Route **/
     Route::resource('skill-section-setting', SkillSectionSettingController::class)->only(['index','update']);
+
+    /**  Skill Sectio Setting Route **/
+    Route::resource('skill-section-item', SkillItemController::class)->except(['show']);
 
 });//End Admin Resource Routes

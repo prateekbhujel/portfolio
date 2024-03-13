@@ -77,8 +77,8 @@
         <li class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Skills</span></a>
           <ul class="dropdown-menu" style="display: none;">
-            <li><a class="nav-link" href="{{ route('admin.skill-section-setting.index') }}">Skill Setting</a></li>
-            <li><a class="nav-link" href="{{ route('admin.protfolio-item.index') }}">Protfolio Item</a></li>
+            <li><a class="nav-link" href="{{ route('admin.skill-section-item.index') }}">Items</a></li>
+            <li><a class="nav-link" href="{{ route('admin.skill-section-setting.index') }}">Setting</a></li>
           </ul>
         </li>
 

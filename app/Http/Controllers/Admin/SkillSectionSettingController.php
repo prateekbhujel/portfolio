@@ -28,7 +28,7 @@ class SkillSectionSettingController extends Controller
         $request->validate([
             'title'         => 'required|max:200',
             'sub_title'     => 'required|max:1600',
-            'image'         => 'image|max:5000|mimes:jpeg,png',
+            'image'         => 'image|max:5000|mimes:jpeg,png,webp',
         ]);
         
         $skill = SkillSectionSetting::first();
