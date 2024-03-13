@@ -74,6 +74,6 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
 
     
     /**  Experince Section Setting Route **/
-    Route::resource('experience', ExperinceController::class)->except(['show']);
+    Route::resource('experience', ExperinceController::class)->only(['index','update']);
 
 });//End Admin Resource Routes
