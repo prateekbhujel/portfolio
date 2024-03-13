@@ -37,7 +37,7 @@ class AboutController extends Controller
             'resume'        => 'mimes:pdf,csv,txt,docx|max:10000'
         ]);
         
-        $about      = About::first();
+        $about      = About::findOrFail($id);
         $imagePath  = handleUpload('image', $about);
         $resumePath = handleUpload('resume', $about);
 

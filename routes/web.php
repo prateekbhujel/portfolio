@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ExperinceController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -65,10 +66,14 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     /**  Protfolio Section Setting Route for Protfolio Section **/
     Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class)->only(['index','update']);
     
-    /**  Skill Sectio Setting Route **/
+    /**  Skill Section Setting Route **/
     Route::resource('skill-section-setting', SkillSectionSettingController::class)->only(['index','update']);
 
-    /**  Skill Sectio Setting Route **/
+    /**  Skill Section Setting Route **/
     Route::resource('skill-section-item', SkillItemController::class)->except(['show']);
+
+    
+    /**  Experince Section Setting Route **/
+    Route::resource('experience', ExperinceController::class)->except(['show']);
 
 });//End Admin Resource Routes
