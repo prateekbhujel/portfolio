@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperinceController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -60,20 +61,19 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     /** Category Route for Protfolio Section **/
     Route::resource('category', CategoryController::class)->except(['show']);
 
-    /**  Protfolio Item Route for Protfolio Section **/
+    /**  Protfolio Section Route **/
     Route::resource('protfolio-item', ProtfolioItemController::class)->except(['show']);
-
-    /**  Protfolio Section Setting Route for Protfolio Section **/
     Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class)->only(['index','update']);
     
-    /**  Skill Section Setting Route **/
+    /**  Skill Section Route **/
     Route::resource('skill-section-setting', SkillSectionSettingController::class)->only(['index','update']);
-
-    /**  Skill Section Setting Route **/
     Route::resource('skill-section-item', SkillItemController::class)->except(['show']);
 
     
-    /**  Experince Section Setting Route **/
+    /**  Experince Section Route **/
     Route::resource('experience', ExperinceController::class)->only(['index','update']);
+    
+    /**  Feedback Section Route **/
+    Route::resource('feedback', FeedbackController::class)->except(['show']);
 
 });//End Admin Resource Routes
