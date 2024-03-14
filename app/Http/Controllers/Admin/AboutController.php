@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\About;
+use Carbon\Carbon;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager as Image;
 
@@ -49,7 +50,8 @@ class AboutController extends Controller
                 'title'       => $request->title,
                 'description' => $request->description,
                 'image'       => (!empty($imagePath) ? $imagePath : $about->image),
-                'resume'      => (!empty($resumePath) ? $resumePath : $about->resumePath), 
+                'resume'      => (!empty($resumePath) ? $resumePath : $about->resumePath),
+                'updated_at'  => Carbon::now(),
             ]
          );
     

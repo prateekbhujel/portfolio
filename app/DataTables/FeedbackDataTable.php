@@ -70,7 +70,6 @@ class FeedbackDataTable extends DataTable
             Column::make('position'),
             Column::make('description'),
             Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

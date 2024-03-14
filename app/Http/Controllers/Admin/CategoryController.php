@@ -6,8 +6,10 @@ use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\ProtfolioItem;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -36,7 +38,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
        $request->validate([
-            'name' => 'required|min:2|max:30',
+            'name' => 'required|min:2|max:30|unique:categories,name',
        ]);
        Category::create([
         'name' => $request->name,
@@ -63,12 +65,13 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name' => 'required|max:20|min:2',
+            'name' => ['required','min:2','max:30', Rule::unique('categories','name')->whereNot('name', $category->name)],
         ]);
 
         $category->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'updated_at'=> Carbon::now(),
         ]);
 
         toastr()->success('Category Updated Successfully');

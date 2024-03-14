@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\BlogCategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\BlogCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -70,6 +71,7 @@ class BlogCategoryController extends Controller
         $blog_category->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'updated_at'=> Carbon::now(),
         ]);
 
         toastr()->success('Blog Category Updated Successfully');
