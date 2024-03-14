@@ -23,11 +23,11 @@
                     @csrf
                     @method('PUT')
 
-                    {{-- @if (!empty($experience->updated_at))
+                    @if (!empty($experience->updated_at))
                       <div class='my-3 badge bg-warning text-dark'>
                         <i class="fas fa-clock me-2"></i>  Last Updated On: {{ $experience->updated_at->diffForHumans() }}
                       </div>
-                    @endif --}}
+                    @endif
 
                     <div class="form-group row mb-4">
                         <label for="thumbnail" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>

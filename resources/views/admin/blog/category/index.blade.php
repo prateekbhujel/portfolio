@@ -1,13 +1,13 @@
 @extends('admin.layouts.layout')
 
-@section('title', 'Portfolio-Categories')
+@section('title', 'Blog-Category')
 
 @section('content')
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
       </div>
-      <h1>Protfolio Categories</h1>
+      <h1>Blog Categories</h1>
 
     </div>
 
@@ -16,9 +16,9 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>All Protfolio Categories</h4>
+              <h4>All Blog Categories</h4>
               <div class="card-header-action">
-                <a href="{{ route('admin.category.create') }}" class="btn btn-success"><i class="fas fa-plus me-2"> Create New</i></a>
+                <a href="{{ route('admin.blog-category.create') }}" class="btn btn-success"><i class="fas fa-plus me-2"> Create New</i></a>
               </div>
             </div>
             <div class="card-body">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperinceController;
@@ -78,5 +79,10 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('feedback', FeedbackController::class)->except(['show']);
     /** Feedback Section Setting Route **/
     Route::resource('feedback-section-setting', FeedbackSectionSettingController::class)->only(['index','update']);
+
+    /** Blog Sections **/
+    /** Catgeory Route **/
+    Route::resource('blog-category', BlogCategoryController::class)->except('show');
+    /** Setting Route **/
 
 });//End Admin Resource Routes

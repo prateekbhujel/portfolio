@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('title','Create Category')
+@section('title','Create Portfolio Category')
 
 @section('content')
 <section class="section">
@@ -8,7 +8,7 @@
       <div class="section-header-back">
         <a href="{{ route('admin.category.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
-      <h1>Category</h1>
+      <h1>Create Portfolio Category</h1>
 
     </div>
 
@@ -26,7 +26,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Name</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="name" class="form-control" value="{{ old('title') }}" placeholder="{{ fake()->name }}">
+                        <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="{{ fake()->name }}">
                       </div>
                     </div>
 
