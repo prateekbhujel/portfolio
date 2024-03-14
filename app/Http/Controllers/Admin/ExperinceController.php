@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Experince;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ExperinceController extends Controller
@@ -46,6 +47,7 @@ class ExperinceController extends Controller
                 'image'       => (!empty($imagePath) ? $imagePath : $experience->image),
                 'phone'       => $request->phone,
                 'email'       => $request->email,
+                'updated_at'  => Carbon::now(),
             ]
          );
     

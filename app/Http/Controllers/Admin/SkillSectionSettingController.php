@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\PortfolioSectionSetting;
 use App\Models\SkillSectionSetting;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SkillSectionSettingController extends Controller
@@ -42,6 +43,7 @@ class SkillSectionSettingController extends Controller
                 'title'       => $request->title,
                 'sub_title'   => $request->sub_title,
                 'image'       => (!empty($imagePath) ? $imagePath : $skill->image),
+                'updated_at'  => Carbon::now()
             ]
          );
     

@@ -1,14 +1,14 @@
 @extends('admin.layouts.layout')
 
-@section('title','Create Item')
+@section('title','Create Blog')
 
 @section('content')
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="{{ route('admin.protfolio-item.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{ route('admin.blog.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
-      <h1>Create Item</h1>
+      <h1>Blog</h1>
 
     </div>
 
@@ -17,10 +17,10 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>New Item</h4>
+              <h4>Create Blog</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.protfolio-item.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group row mb-4">
@@ -41,11 +41,11 @@
                     </div>
 
                     <div class="form-group row mb-4">
-                        <label for="category" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Select Category</label>
+                        <label for="category" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
                         <div class="col-sm-12 col-md-7">
-                            <select name="category_id" id="category_id" class="form-control selectric">
+                            <select name="category" id="category" class="form-control selectric">
                               @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                                <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                               @endforeach  
 
                             </select>
@@ -58,27 +58,6 @@
                             <textarea name="description" id="description" class="summernote">{{ old('description') }}</textarea>
                         </div>
                     </div>
-                    
-                    <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name of Client</label>
-                        <div class="col-sm-12 col-md-7">
-                          <input type="text" name="client" class="form-control" value="{{ old('client') }}" placeholder="Client Name">
-                        </div>
-                    </div>
-
-                    <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Address</label>
-                        <div class="col-sm-12 col-md-7">
-                          <input type="text" name="website" class="form-control" value="{{ old('website') }}" placeholder="example.com">
-                        </div>
-                    </div>
-
-                    <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Created Date</label>
-                      <div class="col-sm-12 col-md-7">
-                        <input type="date" name="created_at" class="form-control" value="{{ old('created_at',$protfolio_item->created_at) }}" >
-                      </div>
-                  </div>
                   
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
