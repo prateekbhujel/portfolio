@@ -3,11 +3,9 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="section-title">
-                    <h3 class="title">Lets Work Together</h3>
+                    <h3 class="title">{{ $contactTitle->title }}</h3>
                     <div class="desc">
-                        <p>Earum quos animi numquam excepturi eveniet explicabo repellendus rem esse.
-                            Quae quasi
-                            odio enim.</p>
+                        <p>{{ $contactTitle->sub_title }}</p>
                     </div>
                 </div>
             </div>
@@ -20,14 +18,14 @@
                         <div class="col-md-4">
                             <div class="form-box">
                                 <input type="text" name="name" id="form-name" class="input-box"
-                                    placeholder="Name">
+                                    placeholder="Name" value={{ old('name') }}>
                                 <label for="form-name" class="icon lb-name"><i class="fal fa-user"></i></label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-box">
                                 <input type="text" name="email" id="form-email" class="input-box"
-                                    placeholder="Email">
+                                    placeholder="Email" value="{{ old('email') }}">
                                 <label for="form-email" class="icon lb-email"><i
                                         class="fal fa-envelope"></i></label>
                             </div>
@@ -35,7 +33,7 @@
                         <div class="col-md-4">
                             <div class="form-box">
                                 <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Subject">
+                                    placeholder="Subject" value="{{ old('subject') }}">
                                 <label for="form-subject" class="icon lb-subject"><i
                                         class="fal fa-check-square"></i></label>
                             </div>
@@ -43,7 +41,7 @@
                         <div class="col-sm-12">
                             <div class="form-box">
                                 <textarea class="input-box" id="form-message" placeholder="Message" cols="30"
-                                    rows="4" name="message"></textarea>
+                                    rows="4" name="message">{{ old('message') }}</textarea>
                                 <label for="form-message" class="icon lb-message"><i
                                         class="fal fa-edit"></i></label>
                             </div>
@@ -83,10 +81,17 @@
                     data: $(this).serialize(),
                     beforeSend:   function(){
                         $('#submit_btn').prop("disabled", true);
-                        $('#submit_btn').text('Loading. . . . . .');
+                        $('#submit_btn').text('Sending message Please Wait . . .');
                     },
                     success: function(response){
-                        console.log(response);
+                        if(response.status == 'success'){
+                            toastr.success(response.message);
+                            $('#submit_btn').prop('disabled', true);
+                            $('#submit_btn').text('Send Now');
+                            $('#contact-form').trigger('reset');
+                        }else{
+                            toastr.error('Something seems off, Please Try again.');
+                        }
                     },
                     error: function(response){
                        if(response.status == 422){

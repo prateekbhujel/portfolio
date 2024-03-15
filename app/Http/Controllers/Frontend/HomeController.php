@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMail;
 use App\Models\Hero;
 use App\Models\Service;
 use App\Models\TyperTitle;
@@ -10,6 +11,7 @@ use App\Models\About;
 use App\Models\Blog;
 use App\Models\BlogSectionSetting;
 use App\Models\Category;
+use App\Models\ContactSectionSetting;
 use App\Models\Experince;
 use App\Models\Feedback;
 use App\Models\FeedbackSectionSetting;
@@ -18,6 +20,7 @@ use App\Models\ProtfolioItem;
 use App\Models\SkillItem;
 use App\Models\SkillSectionSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -38,6 +41,7 @@ class HomeController extends Controller
         $feedbackTitle       = FeedbackSectionSetting::first();
         $blogs               = Blog::latest()->take(5)->get();
         $blogSectionSetting  = BlogSectionSetting::first();
+        $contactTitle        = ContactSectionSetting::first();
         
        return view('frontend.home', 
               compact(
@@ -55,6 +59,7 @@ class HomeController extends Controller
                     'feedbackTitle',
                     'blogs',
                     'blogSectionSetting',
+                    'contactTitle',
                 ));
 
     }//End Method
@@ -94,5 +99,9 @@ class HomeController extends Controller
             'message'   => 'required|max:2000',
         ]);
 
+        Mail::send(new ContactMail($req->all()));
+
+        return response(['status' => 'success','message'=>'Mail sended Successfully!']);
+        
     }//End Method
 }

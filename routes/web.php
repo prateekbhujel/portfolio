@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperinceController;
 use App\Http\Controllers\Admin\FeedbackController;
@@ -90,5 +91,9 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('blog', BlogController::class)->except('show');
     /** Blog Section Setting Route **/
     Route::resource('blog-section-setting', BlogSectionSettingController::class)->only(['index', 'update']);
+
+    /** Contact Section Route **/
+    /** Contact Section Setting Route **/
+    Route::resource('contact-section-setting', ContactSectionSettingController::class)->only(['index','update']);
 
 });//End Admin Resource Routes
