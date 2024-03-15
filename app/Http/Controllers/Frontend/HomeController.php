@@ -63,4 +63,12 @@ class HomeController extends Controller
 
     }//End Method
 
+    public function showBlogDetail(Blog $blogDetail)
+    {  
+        $previousPost = Blog::where('id', '<', $blogDetail->id)->orderBy('id', 'desc')->first();
+        $nextPost     = Blog::where('id', '>', $blogDetail->id)->orderBy('id', 'asc')->first();
+        return view('frontend.blog-details', compact('blogDetail', 'previousPost', 'nextPost'));
+
+    }//End Method
+
 }

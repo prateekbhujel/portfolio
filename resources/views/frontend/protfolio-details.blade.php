@@ -31,7 +31,7 @@
             <div class="col-sm-12">
                 <h2 class="head-title">{{ $portfolioItem->title }}</h2>
                 <figure class="image-block">
-                    <img src="{{ asset('public'. $portfolioItem->image) }}" class="img-fix">
+                    <img src="{{ asset('public'. $portfolioItem->image) }}" class="image-fix">
                 </figure>
                 <div class="portflio-info">
                     <div class="single-info">

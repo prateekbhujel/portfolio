@@ -14,7 +14,7 @@
             <div class="col-sm-4">
                 <div class="breadcrumbs">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                         <li>Portfolio</li>
                     </ul>
                 </div>
@@ -24,94 +24,49 @@
 </header>
 {{-- Banner end --}}
 
-<!-- Portfolio-Area-Start -->
+<!-- Blog details-Area-Start -->
 <section class="blog-details section-padding">
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h2 class="head-title">What People Says About Real Estate Properties.</h2>
+            <h2 class="head-title">{{ $blogDetail->title }}</h2>
             <div class="blog-meta">
                 <div class="single-meta">
                     <div class="meta-title">Published</div>
-                    <h4 class="meta-value"><a href="#">13 November, 2019</a></h4>
+                    <h4 class="meta-value"><a href="javascript:void(0)">{{ date('d M, Y', strtotime($blogDetail->created_at)) }}</a></h4>
                 </div>
                 <div class="single-meta">
-                    <div class="meta-title">Tag</div>
-                    <h4 class="meta-value"><a href="#">Web Development</a></h4>
-                </div>
-                <div class="single-meta">
-                    <div class="meta-title">Comments</div>
-                    <h4 class="meta-value">258 Comments</h4>
+                    <div class="meta-title">Category</div>
+                    <h4 class="meta-value"><a href="javascript:void(0)">{{ $blogDetail->getCategory->name }}</a></h4>
                 </div>
             </div>
             <figure class="image-block">
-                <img src="images/blog-block-image.jpg" alt="">
+                <img class="image-fix" src="{{ asset('public' . $blogDetail->image) }}" alt="blog-details-image.jpeg" style="object-fit: fill;">
             </figure>
             <div class="description">
-                <h2>That and normal and we've class. Explain attained.</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum
-                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley.</p>
-                <blockquote>Standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen
-                    book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took.</blockquote>
-                <ul class="gallery">
-                    <li><img src="images/gallery-3.jpg" alt="" class="img-fluid w-100"></li>
-                    <li><img src="images/gallery-4.jpg" alt="" class="img-fluid w-100"></li>
-                </ul>
-                <p>Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply
-                    dummy text of the printing and typesetting industry.</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum
-                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley.</p>
+                {!! $blogDetail->description !!}
             </div>
             <div class="single-navigation">
-                <a href="#" class="nav-link"><span class="icon"><i
-                            class="fal fa-angle-left"></i></span><span class="text">America National Parks
-                        With Denver.</span></a>
-                <a href="#" class="nav-link"><span class="text">A Seaside Reset In Laguna Beach.</span><span
-                        class="icon"><i class="fal fa-angle-right"></i></span></a>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-<!-- Portfolio-Area-End -->
+                @if ($previousPost)
+                    <a href="{{ route('show.blog.detail', $previousPost->id) }}" class="nav-link"><span class="icon"><i
+                        class="fal fa-angle-left"></i></span><span class="text">{{ $previousPost->title }}</span></a>
+                @else
+                    <a href="javascript:void(0)" class="nav-link"><span class="icon"><i
+                    class="fal fa-angle-left"></i></span><span class="text">No Previous Post</span></a>
+                @endif
 
-<!-- Quote-Area-Start -->
-<section class="quote-area section-padding-bottom">
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="quote-box">
-                <div class="row ">
-                    <div class="col-lg-6 offset-lg-3">
-                        <div class="quote-content">
-                            <h3 class="title">Your Journey Today</h3>
-                            <div class="desc">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate rem
-                                    maiores, neque at officiis laudantium.</p>
-                            </div>
-                            <a href="#" class="button-orange mouse-dir">Get Started <span
-                                    class="dir-part"></span></a>
-                        </div>
-                    </div>
-                </div>
+                @if ($nextPost)
+                    <a href="{{ route('show.blog.detail', $nextPost->id) }}" class="nav-link"><span class="text">{{ $nextPost->title }}</span><span
+                        class="icon"><i class="fal fa-angle-right"></i></span></a>
+                @else
+                    <a href="javascript:void(0)" class="nav-link"><span class="text">No Next Post</span><span
+                    class="icon"><i class="fal fa-angle-right"></i></span></a>
+                @endif
             </div>
         </div>
     </div>
 </div>
 </section>
-<!-- Quote-Area-End -->
+<!-- Blog details -Area-End -->
 
 @endsection

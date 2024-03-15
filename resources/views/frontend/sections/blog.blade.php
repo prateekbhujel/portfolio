@@ -26,7 +26,7 @@
                                     {!! Str::limit(strip_tags($blog->description), 100, '....') !!}
 
                                 </div>
-                                <a href="#" class="button-primary-trans mouse-dir">Read More <span
+                                <a href="{{ route('show.blog.detail', $blog->id) }}" class="button-primary-trans mouse-dir">Read More <span
                                         class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
                             </div>
                         </div>

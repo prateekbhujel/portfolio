@@ -86,7 +86,7 @@ class BlogController extends Controller
         $blog->save();
 
         toastr('Blog Updated Successfully.', 'success');
-        return to_route('admin.blog.index');
+        return redirect()->back();
 
     }//End Method
 
