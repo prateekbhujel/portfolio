@@ -25,10 +25,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /** Portfolio Details route**/
 Route::get('portfolio-details/{portfolioItem}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+
 /** Blog Details route**/
 Route::get('blog-details/{blogDetail}', [HomeController::class, 'showBlogDetail'])->name('show.blog.detail');
+
 /** Blog grid lists Route **/
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
+
+/** Contact Route **/
+Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
 /** End Fornt-End All Routes **/
 

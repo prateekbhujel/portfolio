@@ -84,4 +84,15 @@ class HomeController extends Controller
         return view('frontend.blog', compact('blogs'));
     }//End Method
 
+
+    public function contact(Request $req)
+    {
+        $req->validate([
+            'name'      => 'required|max:200',
+            'subject'   => 'required|max:300',
+            'email'     => 'required|email',
+            'message'   => 'required|max:2000',
+        ]);
+
+    }//End Method
 }
