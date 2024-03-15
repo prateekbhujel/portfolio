@@ -71,7 +71,22 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        
+         $request->validate([
+            'image'       => ['max:5000', 'image'],
+            'title'       => ['required', 'max:300'],
+            'description' => ['required'],
+            'category'    => ['required', 'numeric'],
+        ]);
+
+        $imagePath = handleUpload('image', $blog);
+        $blog->image       = (!empty($imagePath) ? $imagePath : $blog->image);
+        $blog->title       = $request->title;
+        $blog->description = $request->description;
+        $blog->category    = $request->category;
+        $blog->save();
+
+        toastr('Blog Updated Successfully.', 'success');
+        return to_route('admin.blog.index');
 
     }//End Method
 
@@ -81,6 +96,7 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         $blog->delete();
+        deleteFileIfExist($blog->image);
         return true;
 
     }//End Method

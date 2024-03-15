@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\BlogCategoryDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -84,8 +85,14 @@ class BlogCategoryController extends Controller
      */
     public function destroy(BlogCategory $blog_category)
     {
-        $blog_category->delete();
-        return true;
+       
+        $hasItem = Blog::where('category', $blog_category->id)->count();
+        if($hasItem == 0){
+            $blog_category->delete();
+            return true;
+        }
+
+        return response(['status' => 'error']);
 
     }//End Method
 }

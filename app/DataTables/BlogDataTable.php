@@ -33,9 +33,16 @@ class BlogDataTable extends DataTable
         ->addColumn('updated_at', function($data){
             return $data->updated_at->format('jS M, Y'); 
         })
+        ->addColumn('category', function($query){
+            return $query->getCategory->name;
+        })
+        ->addColumn('image', function($data){
+            return '<img src="'.asset('public/'.$data->image).'" style="max-width:100px;"></img>';
+        })
         ->addColumn('description', function($query){
             return Str::limit(strip_tags($query->description), 50);
         })
+        ->rawColumns(['action', 'image'])
         ->setRowId('id');
     }
 
@@ -69,6 +76,7 @@ class BlogDataTable extends DataTable
     {
         return [
             Column::make('id'),
+            Column::make('image'),
             Column::make('title'),
             Column::make('category'),
             Column::make('description'),

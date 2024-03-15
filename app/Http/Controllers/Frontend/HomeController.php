@@ -7,6 +7,7 @@ use App\Models\Hero;
 use App\Models\Service;
 use App\Models\TyperTitle;
 use App\Models\About;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Experince;
 use App\Models\Feedback;
@@ -34,6 +35,7 @@ class HomeController extends Controller
         $experience          = Experince::first();
         $feedbacks           = Feedback::all();
         $feedbackTitle       = FeedbackSectionSetting::first();
+        $blogs               = Blog::latest()->take(5)->get();
         
        return view('frontend.home', 
               compact(
@@ -49,6 +51,7 @@ class HomeController extends Controller
                     'experience',
                     'feedbacks',
                     'feedbackTitle',
+                    'blogs',
                 ));
 
     }//End Method

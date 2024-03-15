@@ -48,7 +48,6 @@
                               @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" @selected($category->id == $protfolio_item->category_id)>{{ $category->name }}</option>
                               @endforeach  
-
                             </select>
                         </div>
                     </div>
