@@ -22,18 +22,12 @@ use Illuminate\Support\Facades\Route;
 /** Fornt-End All Routes **/
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/blog', function () {
-    return view('frontend.blog');
-})->name('blog');
-
-Route::get('/blog-details', function () {
-    return view('frontend.blog-details');
-});
-
 /** Portfolio Details route**/
 Route::get('portfolio-details/{portfolioItem}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
-/** Portfolio Details route**/
+/** Blog Details route**/
 Route::get('blog-details/{blogDetail}', [HomeController::class, 'showBlogDetail'])->name('show.blog.detail');
+/** Blog grid lists Route **/
+Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 
 /** End Fornt-End All Routes **/
 

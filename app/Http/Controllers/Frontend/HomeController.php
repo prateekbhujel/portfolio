@@ -71,4 +71,14 @@ class HomeController extends Controller
 
     }//End Method
 
+
+    /**
+     * This function returns the blogs and shows them in lsists: grids
+    */
+    public function blog()
+    {
+        $blogs = Blog::latest()->paginate(9);
+        return view('frontend.blog', compact('blogs'));
+    }//End Method
+
 }
