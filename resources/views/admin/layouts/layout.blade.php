@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="{{ asset('public/assets/css/plugins/daterangepicker.css') }}">
   <link rel="stylesheet" href="{{ asset('public/assets/css/plugins/select2.min.css') }}">
   
+  {{-- Bootstrap Icon picker cdn Link --}}
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
+
+
   {{-- Toaster css cdn link --}}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
@@ -79,6 +84,8 @@
   <script src="{{ asset('public/assets/js/plugins/daterangepicker.js') }}"></script>
   <script src="{{ asset('public/assets/js/plugins/select2.full.min.js') }}"></script>
 
+  {{-- Bootstrap Icon Picer JS CDN Link --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
 
   <!-- Template JS File -->
   <script src="{{ asset('public/assets/js/scripts.js') }}"></script>
