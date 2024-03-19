@@ -111,8 +111,9 @@
         <li class="nav-item dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Footer</span></a>
           <ul class="dropdown-menu" style="display: none;">
+            <li><a class="nav-link" href="{{ route('admin.footer-contact-info.index') }}">Contact Info</a></li>
+            <li><a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
             <li><a class="nav-link" href="{{ route('admin.footer-social.index') }}">Social Links</a></li>
-            <li><a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Information</a></li>
           </ul>
         </li>
         
