@@ -20,27 +20,21 @@
               <h4>Edit Link</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.footer-social.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.footer-social.update', $footer_social->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
                     <div class="form-group row mb-4">
-                      <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Client Name</label>
+                      <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pick Icon</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Jhon Doe">
+                        <button name="icon" class="btn btn-primary" role="iconpicker" data-iconset="fontawesome5" data-icon="{{ old('icon', $footer_social->icon) }}"></button>
                       </div>
                     </div>
 
                     <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Position</label>
+                        <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Url</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" name="position" class="form-control" value="{{ old('position') }}" placeholder="CFO, CTO, Sales Represntative">
-                        </div>
-                    </div>
-
-                    <div class="form-group row mb-4">
-                        <label for="description" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
-                        <div class="col-sm-12 col-md-7">
-                          <textarea name="description" id="description" class="form-control" placeholder="Feedback...." style="height: 100px">{{ old('description') }}</textarea>
+                          <input type="url" name="url" class="form-control" value="{{ old('url',  $footer_social->url) }}" placeholder="https://www.twitter.com/jhon.doe">
                         </div>
                       </div>
                            

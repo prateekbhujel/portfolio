@@ -34,7 +34,7 @@ class FooterSocialLinkController extends Controller
     {
         FooterSocialLink::create($request->validate([
             'icon' => 'required',
-            'url' => 'required|url',
+            'url' => 'required|url'
         ]));
 
         toastr('Social Link created Successfully.','success');
@@ -47,7 +47,7 @@ class FooterSocialLinkController extends Controller
      */
     public function edit(FooterSocialLink $footer_social)
     {
-        return view('admin.blog.category.edit', compact('footer_social'));
+        return view('admin.footer.social-link.edit', compact('footer_social'));
 
     }//End Method
 
@@ -56,7 +56,13 @@ class FooterSocialLinkController extends Controller
      */
     public function update(Request $request, FooterSocialLink $footer_social)
     {
-        
+        $footer_social->update($request->validate([
+            'icon' => 'required',
+            'url' => 'required|url'
+        ]));
+
+        toastr('Social Link Updated.', 'success');
+        return to_route('admin.footer-social.index');
 
     }//End Method
 

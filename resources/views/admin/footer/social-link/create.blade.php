@@ -26,14 +26,14 @@
                     <div class="form-group row mb-4">
                       <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pick Icon</label>
                       <div class="col-sm-12 col-md-7">
-                        <button name="icon" class="btn btn-primary" role="iconpicker"></button>
+                        <button name="icon" class="btn btn-primary" role="iconpicker" data-iconset="fontawesome5" data-icon="{{ old('icon') }}"></button>
                       </div>
                     </div>
 
                     <div class="form-group row mb-4">
                         <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Url</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="url" name="url" class="form-control" value="{{ old('url') }}" placeholder="Jhon Doe">
+                          <input type="url" name="url" class="form-control" value="{{ old('url') }}" placeholder="https://www.twitter.com/jhon.doe">
                         </div>
                       </div>
                            
