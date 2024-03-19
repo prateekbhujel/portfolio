@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperinceController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\FeedbackSectionSettingController;
+use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterSocialLinkController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
@@ -100,5 +101,7 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     /** Footer Sections All Routes **/
     /** Social Routes **/
     Route::resource('footer-social', FooterSocialLinkController::class)->except(['show']);
+    /** Information of footer (Footer details) **/
+    Route::resource('footer-info', FooterInfoController::class )->only(['index', 'update']);
 
 });//End Admin Resource Routes
