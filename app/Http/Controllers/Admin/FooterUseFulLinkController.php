@@ -35,7 +35,7 @@ class FooterUseFulLinkController extends Controller
         FooterUseFulLink::create(
             $request->validate([
               'name' => 'required|max:100',  
-              'url' => 'required|url',  
+              'url' => 'required',  
             ])
         );
 
@@ -62,7 +62,7 @@ class FooterUseFulLinkController extends Controller
         $footer_useful_link->update(
             $request->validate([
               'name' => 'required|max:100',  
-              'url' => 'required|url',  
+              'url' => 'required',  
             ])
         );
 

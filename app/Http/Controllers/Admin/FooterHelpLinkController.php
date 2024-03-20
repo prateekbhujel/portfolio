@@ -33,7 +33,7 @@ class FooterHelpLinkController extends Controller
     {
         FooterHelpLink::create($request->validate([
             'name' => 'required|min:2|max:36',
-            'url' => 'required|url',
+            'url' => 'required',
         ]));
 
         toastr('Created Successfully','success');
@@ -56,7 +56,7 @@ class FooterHelpLinkController extends Controller
     {
         $footer_help_link->update($request->validate([
             'name' => 'required|min:2|max:36',
-            'url' => 'required|url',
+            'url' => 'required',
         ]));
 
         toastr('Successfully Updated', 'success');
@@ -73,4 +73,4 @@ class FooterHelpLinkController extends Controller
         return true;
 
     }//End method
-}
+} 

@@ -34,7 +34,7 @@
                     <div class="form-group row mb-4">
                         <label for="name" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Url of The Link:</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="url" name="url" class="form-control" value="{{ old('url', $footer_useful_link->url) }}" placeholder="https://www.meddium.com/useful-content-ever">
+                          <input type="text" name="url" class="form-control" value="{{ old('url', $footer_useful_link->url) }}" placeholder="https://www.meddium.com/useful-content-ever">
                         </div>
                       </div>
                            

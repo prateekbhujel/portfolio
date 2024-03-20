@@ -41,7 +41,7 @@ class HomeController extends Controller
         $feedbackTitle       = FeedbackSectionSetting::first();
         $blogs               = Blog::latest()->take(5)->get();
         $blogSectionSetting  = BlogSectionSetting::first();
-        $contactTitle        = ContactSectionSetting::first();
+        $contactTitle        = ContactSectionSetting::first(); 
         
        return view('frontend.home', 
               compact(
