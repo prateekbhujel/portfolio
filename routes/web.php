@@ -15,11 +15,13 @@ use App\Http\Controllers\Admin\FooterHelpLinkController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterSocialLinkController;
 use App\Http\Controllers\Admin\FooterUseFulLinkController;
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProtfolioItemController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
@@ -102,7 +104,7 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('contact-section-setting', ContactSectionSettingController::class)->only(['index','update']);
     
     /** Footer Sections All Routes **/
-    /** Social Routes **/
+    /** Social Links Routes **/
     Route::resource('footer-social', FooterSocialLinkController::class)->except(['show']);
     /** Information of footer (Footer details) **/
     Route::resource('footer-info', FooterInfoController::class )->only(['index', 'update']);
@@ -112,5 +114,11 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('footer-useful-links', FooterUseFulLinkController::class)->except('show');
     /** Help Links routes **/
     Route::resource('footer-help-links', FooterHelpLinkController::class)->except('show');
+    
+    /** Website Settings Routes **/
+    Route::get('settings', SettingController::class)->name('settings.index');
+    /** General Settings Route **/
+    Route::resource('general-setting', GeneralSettingController::class)->only(['index', 'update']);
+    /** SEO Settings Route **/
 
 });//End Admin Resource Routes

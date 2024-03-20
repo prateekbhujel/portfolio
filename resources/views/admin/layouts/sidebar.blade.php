@@ -118,6 +118,8 @@
             <li><a class="nav-link" href="{{ route('admin.footer-useful-links.index') }}">Useful Links</a></li>
           </ul>
         </li>
+
+        <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i> <span>Setting</span></a></li>
         
       </ul>
   </aside>
