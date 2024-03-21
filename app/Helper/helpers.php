@@ -24,7 +24,7 @@ function handleUpload($inputName, $model =  null)
         throw $e;
     }
 
-}
+}//End Function.
 
 /** Delete File **/
 
@@ -38,7 +38,7 @@ function deleteFileIfExist($filePath)
    }catch(\Exception $e) {
         throw $e;
    }
-}
+}//nd Function.
 
 /** Get Dynamic Colors value **/
 function getColors($index)
@@ -46,4 +46,19 @@ function getColors($index)
     $colors = ['#558bff', '#fecc90', '#ff885e', '#282828', '#190844', '#9dd3ff'];
 
     return $colors[$index % count($colors)];
-}
+}//End Function.
+
+/** 
+ * Set Sidebar active dynamicallly 
+**/
+function setSidebarActive($route)
+{
+    if(is_array($route)){
+        foreach($route as $r)
+        {
+            if(request()->routeIs($r)){
+                return 'active';
+            }
+        }
+    }
+}//End Function.

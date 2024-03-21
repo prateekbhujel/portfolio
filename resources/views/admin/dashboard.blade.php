@@ -12,14 +12,14 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
-            <i class="far fa-user"></i>
+                <i class="fas fa-blog"></i>
             </div>
             <div class="card-wrap">
             <div class="card-header">
-                <h4>Total Admin</h4>
+                <h4>Total Blog's</h4>
             </div>
             <div class="card-body">
-                10
+                {{ $blogCount }}
             </div>
             </div>
         </div>
@@ -27,14 +27,14 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
             <div class="card-icon bg-danger">
-            <i class="far fa-newspaper"></i>
+                <i class="fas fa-laptop-code"></i>
             </div>
             <div class="card-wrap">
             <div class="card-header">
-                <h4>News</h4>
+                <h4>Total Skill's</h4>
             </div>
             <div class="card-body">
-                42
+                {{ $skillCount }}
             </div>
             </div>
         </div>
@@ -46,10 +46,10 @@
             </div>
             <div class="card-wrap">
             <div class="card-header">
-                <h4>Reports</h4>
+                <h4>Total Portfolio's</h4>
             </div>
             <div class="card-body">
-                1,201
+                {{ $portfolioCount }}
             </div>
             </div>
         </div>
@@ -57,14 +57,14 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
             <div class="card-icon bg-success">
-            <i class="fas fa-circle"></i>
+                <i class="fas fa-envelope-open-text"></i>
             </div>
             <div class="card-wrap">
             <div class="card-header">
-                <h4>Online Users</h4>
+                <h4>Total Feedback's</h4>
             </div>
             <div class="card-body">
-                47
+                {{ $feedbackCount }}
             </div>
             </div>
         </div>
