@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProtfolioItemController;
+use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SkillItemController;
@@ -120,5 +121,6 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     /** General Settings Route [16mins]**/
     Route::resource('general-setting', GeneralSettingController::class)->only(['index', 'update']);
     /** SEO Settings Route **/
+    Route::resource('seo-setting', SeoSettingController::class)->only(['index', 'update']);
 
 });//End Admin Resource Routes
