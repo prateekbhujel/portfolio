@@ -6,12 +6,8 @@
       <img alt="image" src="{{ asset('public/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
       <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
-        <div class="dropdown-title">Logged in 5 min ago</div>
         <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
           <i class="far fa-user"></i> Profile
-        </a>
-        <a href="features-settings.html" class="dropdown-item has-icon">
-          <i class="fas fa-cog"></i> Settings
         </a>
         <div class="dropdown-divider"></div>
         <form method="POST" action="{{ route('logout') }}">
@@ -41,25 +37,25 @@
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
         <li class="nav-item {{ setSidebarActive(['dashboard']) }}">
-          <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+          <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
         </li>
 
         <li class="menu-header">Sections</li>
 
         <li class="nav-item dropdown {{   setSidebarActive(['admin.typer-title.*', 'admin.hero.*']) }}">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Hero</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Hero</span></a>
           <ul class="dropdown-menu" style="display: none;">
             <li class="{{ setSidebarActive(['admin.typer-title.*']) }}"><a class="nav-link" href="{{ route('admin.typer-title.index') }}">Typer Title</a></li>
             <li class="{{ setSidebarActive(['admin.hero.*']) }}"><a class="nav-link" href="{{ route('admin.hero.index') }}">Hero Section</a></li>
           </ul>
         </li>
 
-        <li class="{{ setSidebarActive(['admin.services.*']) }}"><a class="nav-link" href="{{ route('admin.services.index') }}"><i class="far fa-square"></i> <span>Services</span></a></li>
+        <li class="{{ setSidebarActive(['admin.services.*']) }}"><a class="nav-link" href="{{ route('admin.services.index') }}"><i class="fas fa-cogs"></i> <span>Services</span></a></li>
 
-        <li class="{{ setSidebarActive(['admin.about.*']) }}"><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i> <span>About</span></a></li>
+        <li class="{{ setSidebarActive(['admin.about.*']) }}"><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="fas fa-info-circle"></i> <span>About</span></a></li>
 
         <li class="nav-item dropdown {{ setSidebarActive(['admin.category.*', 'admin.protfolio-item.*', 'admin.portfolio-section-setting.*']) }}">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Prtotfolio</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-folder-open"></i> <span>Prtotfolio</span></a>
           <ul class="dropdown-menu" style="display: none;">
             <li class="{{ setSidebarActive(['admin.category.*']) }}"><a class="nav-link" href="{{ route('admin.category.index') }}">Category</a></li>
             <li class="{{ setSidebarActive(['admin.protfolio-item.*']) }}"><a class="nav-link" href="{{ route('admin.protfolio-item.index') }}">Protfolio Item</a></li>
@@ -68,17 +64,17 @@
         </li>
 
         <li class="nav-item dropdown {{ setSidebarActive(['admin.skill-section-item.*', 'admin.skill-section-setting.*']) }}">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Skills</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-code"></i> <span>Skills</span></a>
           <ul class="dropdown-menu" style="display: none;">
             <li class="{{ setSidebarActive(['admin.skill-section-item.*']) }}"><a class="nav-link" href="{{ route('admin.skill-section-item.index') }}">Items</a></li>
             <li class="{{ setSidebarActive(['admin.skill-section-setting.*']) }}"><a class="nav-link" href="{{ route('admin.skill-section-setting.index') }}">Setting</a></li>
           </ul>
         </li>
 
-        <li class="{{ setSidebarActive(['admin.experience.*']) }}"><a class="nav-link" href="{{ route('admin.experience.index') }}"><i class="far fa-square"></i> <span>Experience</span></a></li>
+        <li class="{{ setSidebarActive(['admin.experience.*']) }}"><a class="nav-link" href="{{ route('admin.experience.index') }}"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
 
         <li class="nav-item dropdown {{ setSidebarActive(['admin.feedback.*', 'admin.feedback-section-setting.*']) }}">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Feedback</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-comment"></i> <span>Feedback</span></a>
           <ul class="dropdown-menu" style="display: none;">
             <li class="{{ setSidebarActive(['admin.feedback.*']) }}"><a class="nav-link" href="{{ route('admin.feedback.index') }}">Feedbacks</a></li>
             <li class="{{ setSidebarActive(['admin.feedback-section-setting.*']) }}"><a class="nav-link" href="{{ route('admin.feedback-section-setting.index') }}">Setting</a></li>
@@ -86,7 +82,7 @@
         </li>
 
         <li class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting*']) }}">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Blog</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-rss"></i> <span>Blog</span></a>
           <ul class="dropdown-menu" style="display: none;">
             <li class="{{ setSidebarActive(['admin.blog-category.*']) }}"><a class="nav-link" href="{{ route('admin.blog-category.index') }}">Category</a></li>
             <li class="{{ setSidebarActive(['admin.blog.*']) }}"><a class="nav-link" href="{{ route('admin.blog.index') }}">Blog List</a></li>
@@ -94,10 +90,10 @@
           </ul>
         </li>
 
-        <li class="{{ setSidebarActive(['admin.contact-section-setting.*']) }}"><a class="nav-link" href="{{ route('admin.contact-section-setting.index') }}"><i class="far fa-square"></i> <span>Contact</span></a></li>
+        <li class="{{ setSidebarActive(['admin.contact-section-setting.*']) }}"><a class="nav-link" href="{{ route('admin.contact-section-setting.index') }}"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
 
         <li class="nav-item dropdown {{ setSidebarActive(['admin.footer-contact-info.*', 'admin.footer-info.*', 'admin.footer-help-links.*', 'admin.footer-social.*', 'admin.footer-useful-links.*']) }}">
-          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Footer</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i> <span>Footer</span></a>
           <ul class="dropdown-menu" style="display: none;">
             <li class="{{ setSidebarActive(['admin.footer-contact-info.*']) }}"><a class="nav-link" href="{{ route('admin.footer-contact-info.index') }}">Contact Info</a></li>
             <li class="{{ setSidebarActive(['admin.footer-info.*']) }}"><a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
@@ -107,7 +103,7 @@
           </ul>
         </li>
 
-        <li class="{{ setSidebarActive(['admin.settings.*', 'admin.general-setting.*', 'admin.seo-setting.*']) }}"><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i> <span>Setting</span></a></li>
+        <li class="{{ setSidebarActive(['admin.settings.*', 'admin.general-setting.*', 'admin.seo-setting.*']) }}"><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-cog"></i> <span>Setting</span></a></li>
         
       </ul>
   </aside>
