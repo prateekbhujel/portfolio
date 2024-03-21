@@ -33,9 +33,9 @@
                     @endif
 
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">SEO Title</label>
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Website Title</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="title" class="form-control" value="{{ old('title', $seoSetting->title) }}" placeholder="Give SEO Title...">
+                        <input type="text" name="title" class="form-control" value="{{ old('title', $seoSetting->title) }}" placeholder="Give Website Title...">
                       </div>
                     </div>
                     
@@ -49,7 +49,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">SEO Keywords</label>
                         <div class="col-sm-12 col-md-7">
-                            <input type="text" name="keywords" class="form-control" value="{{ old('keywords', $seoSetting->keywords) }}" placeholder="Give Trending Keywords to be index..">
+                            <input type="text" name="keywords" class="form-control" value="{{ old('keywords', $seoSetting->keywords) }}" placeholder="Trending words and must be comma seperated.">
                         </div>
                     </div>
 

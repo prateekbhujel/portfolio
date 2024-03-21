@@ -8,6 +8,7 @@ use App\Models\FooterInfo;
 use App\Models\FooterSocialLink;
 use App\Models\FooterUseFulLink;
 use App\Models\GeneralSetting;
+use App\Models\SeoSetting;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,8 +34,9 @@ class FooterViewServiceProivider extends ServiceProvider
             $footerContactInfo = FooterContactInfo::first();
             $footerHelpLinks   = FooterHelpLink::all();
             $generalSetting    = GeneralSetting::first();
-            
-            $view->with(compact('footerInfo', 'footerIcons', 'footerUsefulLinks', 'footerContactInfo', 'footerHelpLinks', 'generalSetting'));
+            $seoSetting        = SeoSetting::first();
+
+            $view->with(compact('footerInfo', 'footerIcons', 'footerUsefulLinks', 'footerContactInfo', 'footerHelpLinks', 'generalSetting', 'seoSetting'));
 
         });
     }

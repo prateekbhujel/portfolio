@@ -6,7 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ config('app.name') }} | @yield('title', 'Protfolio')</title>
+	<meta name="description" content="{{ $seoSetting->description }}">
+	<meta name="keywords" content="{{ $seoSetting->keywords }}">
+	<title>{{ $seoSetting->title }}</title>
+
 	<link rel="shortcut icon" type="image/ico" href="{{ asset('public'. $generalSetting->favicon) }}" />
 	<link rel="stylesheet" href="{{ asset('public/frontend/assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('public/frontend/assets/css/normalize.css') }}">
