@@ -104,4 +104,12 @@ class HomeController extends Controller
         return response(['status' => 'success','message'=>'Mail sended Successfully!']);
         
     }//End Method
+
+    public function portfolio()
+    {
+        $portfolioCategories = Category::all();
+        $portfolioItems      = ProtfolioItem::latest()->paginate(8);
+
+        return view('frontend.portfolio', compact('portfolioCategories', 'portfolioItems'));
+    }//End Method
 }

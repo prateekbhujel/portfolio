@@ -41,6 +41,8 @@ Route::get('blog-details/{blogDetail}', [HomeController::class, 'showBlogDetail'
 /** Blog grid lists Route **/
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 
+Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+
 /** Contact Route **/
 Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 

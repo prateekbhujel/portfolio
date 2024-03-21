@@ -1,6 +1,6 @@
 @extends('frontend.layouts.layout')
 
-@section('title', 'Blog')
+@section('title', 'Blogs')
 
 @section('content')
 
@@ -10,14 +10,6 @@
         <div class="row d-flex align-items-center">
             <div class="col-sm-7">
                 <h2 class="title">Blog</h2>
-            </div>
-            <div class="col-sm-5">
-                <div class="breadcrumbs">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li>Blog</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

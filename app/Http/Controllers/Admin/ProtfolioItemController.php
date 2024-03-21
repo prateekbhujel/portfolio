@@ -25,7 +25,9 @@ class ProtfolioItemController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.protfolio.item.create', compact('categories'));
+        $protfolio_item = ProtfolioItem::all();
+
+        return view('admin.protfolio.item.create', compact('categories', 'protfolio_item'));
     
     }//End Method
 
