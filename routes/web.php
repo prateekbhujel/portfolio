@@ -117,7 +117,7 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     
     /** Website Settings Routes **/
     Route::get('settings', SettingController::class)->name('settings.index');
-    /** General Settings Route **/
+    /** General Settings Route [16mins]**/
     Route::resource('general-setting', GeneralSettingController::class)->only(['index', 'update']);
     /** SEO Settings Route **/
 

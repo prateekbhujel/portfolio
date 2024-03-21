@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('general_settings', function (Blueprint $table) {
             $table->id();
+            $table->text('logo')->nullable();
+            $table->text('footer_logo')->nullable();
+            $table->text('favicon')->nullable();
             $table->timestamps();
         });
     }

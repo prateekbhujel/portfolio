@@ -5,7 +5,7 @@
         <div class="col-md-12 col-lg-3 widget">
             <div class="text-box">
                 <figure class="footer-logo">
-                    <img src="public/frontend/assets/images/logo.png" alt="logo-image">
+                    <img src="{{ asset('public' . $generalSetting->footer_logo) }}" alt="logo-image">
                 </figure>
                 <p>{{ $footerInfo->info }}</p>
                 <ul class="d-flex flex-wrap">

@@ -26,41 +26,59 @@
                     @csrf
                     @method('PUT')
 
-                    {{-- @if (!empty($setting->updated_at))
+                    @if (!empty($setting->updated_at))
                       <div class='my-4 badge bg-warning text-dark'>
                         <i class="fas fa-clock me-2"></i>  Last Updated On: {{ $setting->updated_at->diffForHumans() }}
                       </div>
-                    @endif --}}
+                    @endif
 
                     <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Logo</label>
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Logo Preview</label>
                         <div class="col-sm-12 col-md-7">
-                            <div class="custom-file">
-                                <input type="file" name="image" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
+                            <img style="20px;;" src="{{ asset('public'.$setting->logo) }}" alt="website-logo-image"/>
                         </div>
                     </div>
-
                     <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo</label>
-                        <div class="col-sm-12 col-md-7">
-                            <div class="custom-file">
-                                <input type="file" name="image" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Logo</label>
+                      <div class="col-sm-12 col-md-7">
+                          <div class="custom-file">
+                              <input type="file" name="logo" class="custom-file-input" id="customFile">
+                              <label class="custom-file-label" for="customFile">Choose file</label>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group row mb-4">
+                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo Preview</label>
+                    <div class="col-sm-12 col-md-7">
+                        <img style="20px;;" src="{{ asset('public'.$setting->footer_logo) }}" alt="website-logo-image"/>
                     </div>
+                  </div>
+                  <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo</label>
+                      <div class="col-sm-12 col-md-7">
+                          <div class="custom-file">
+                              <input type="file" name="footer_logo" class="custom-file-input" id="customFile">
+                              <label class="custom-file-label" for="customFile">Choose file</label>
+                          </div>
+                      </div>
+                  </div>
 
-                    <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Favicon</label>
-                        <div class="col-sm-12 col-md-7">
-                            <div class="custom-file">
-                                <input type="file" name="image" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
+                  <div class="form-group row mb-4">
+                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Faviocn Preview</label>
+                    <div class="col-sm-12 col-md-7">
+                        <img style="20px;" src="{{ asset('public'.$setting->favicon) }}" alt="website-logo-image"/>
                     </div>
+                  </div>
+                  <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Favicon</label>
+                      <div class="col-sm-12 col-md-7">
+                          <div class="custom-file">
+                              <input type="file" name="favicon" class="custom-file-input" id="customFile">
+                              <label class="custom-file-label" for="customFile">Choose file</label>
+                          </div>
+                      </div>
+                  </div>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>

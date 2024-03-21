@@ -7,6 +7,7 @@ use App\Models\FooterHelpLink;
 use App\Models\FooterInfo;
 use App\Models\FooterSocialLink;
 use App\Models\FooterUseFulLink;
+use App\Models\GeneralSetting;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,14 +26,15 @@ class FooterViewServiceProivider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('frontend.layouts.footer', function($view) {
-            $footerInfo =  FooterInfo::first();
-            $footerIcons = FooterSocialLink::all();
+        View::composer(['frontend.layouts.footer', 'frontend.layouts.layout'], function($view) {
+            $footerInfo        =  FooterInfo::first();
+            $footerIcons       = FooterSocialLink::all();
             $footerUsefulLinks = FooterUseFulLink::all();
             $footerContactInfo = FooterContactInfo::first();
-            $footerHelpLinks = FooterHelpLink::all();
-
-            $view->with(compact('footerInfo', 'footerIcons', 'footerUsefulLinks', 'footerContactInfo', 'footerHelpLinks'));
+            $footerHelpLinks   = FooterHelpLink::all();
+            $generalSetting    = GeneralSetting::first();
+            
+            $view->with(compact('footerInfo', 'footerIcons', 'footerUsefulLinks', 'footerContactInfo', 'footerHelpLinks', 'generalSetting'));
 
         });
     }
