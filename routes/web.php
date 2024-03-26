@@ -124,5 +124,6 @@ Route::group(['middlware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::resource('general-setting', GeneralSettingController::class)->only(['index', 'update']);
     /** SEO Settings Route **/
     Route::resource('seo-setting', SeoSettingController::class)->only(['index', 'update']);
+    
 
 });//End Admin Resource Routes

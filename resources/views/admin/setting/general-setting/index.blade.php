@@ -35,7 +35,11 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Webiste Logo Preview</label>
                         <div class="col-sm-12 col-md-7">
-                            <img style="20px;;" src="{{ asset('public'.$setting->logo) }}" alt="website-logo-image"/>
+                            @if (!empty($setting->logo))
+                                <img style="20px;;" src="{{ asset('public'.$setting->logo) }}" alt="website-logo-image"/>
+                            @else
+                                <p>No website logo uploaded yet.</p>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row mb-4">
@@ -51,7 +55,11 @@
                   <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo Preview</label>
                     <div class="col-sm-12 col-md-7">
-                        <img style="20px;;" src="{{ asset('public'.$setting->footer_logo) }}" alt="website-logo-image"/>
+                        @if (!empty($setting->footer_logo))
+                            <img style="20px;" src="{{ asset('public'.$setting->footer_logo) }}" alt="website-logo-image"/>
+                        @else
+                            <p>No footer logo uploaded yet.</p>
+                        @endif
                     </div>
                   </div>
                   <div class="form-group row mb-4">
@@ -67,7 +75,11 @@
                   <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Faviocn Preview</label>
                     <div class="col-sm-12 col-md-7">
-                        <img style="20px;" src="{{ asset('public'.$setting->favicon) }}" alt="website-logo-image"/>
+                        @if (!empty($setting->favicon))
+                            <img style="20px;" src="{{ asset('public'.$setting->favicon) }}" alt="website-logo-image"/>
+                        @else
+                            <p>No favicon uploaded yet.</p>
+                        @endif
                     </div>
                   </div>
                   <div class="form-group row mb-4">

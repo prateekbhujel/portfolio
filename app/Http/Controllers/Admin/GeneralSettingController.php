@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\GeneralSetting;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class GeneralSettingController extends Controller
@@ -25,21 +26,27 @@ class GeneralSettingController extends Controller
     public function update(Request $request, string $id)
     {
        $request->validate([
-        'logo'        => 'required|max:5000|image',
-        'footer_logo' => 'required|max:5000|image',
-        'favicon'     => 'required|max:5000|image',
+        'logo'        => 'nullable|max:5000|image',
+        'footer_logo' => 'nullable|max:5000|image',
+        'favicon'     => 'nullable|max:5000|image',
        ]);
        
-       $setting = GeneralSetting::first();
+       $setting = GeneralSetting::findOrFail($id);
        $logo        = handleUpload('logo', $setting );
        $footer_logo = handleUpload('footer_logo', $setting );
        $favicon     = handleUpload('favicon', $setting );
 
-       $generalSetting              = new GeneralSetting();
-       $generalSetting->logo        = (!empty($logo)) ? $logo : $setting->logo;
-       $generalSetting->footer_logo = (!empty($footer_logo)) ? $footer_logo : $setting->footer_logo;
-       $generalSetting->favicon     = (!empty($favicon)) ? $favicon : $setting->favicon;
-       $generalSetting->save();
+       GeneralSetting::updateOrCreate(
+        [
+            'id'         => $id
+        ],
+        [
+            'logo'          => (!empty($logo) ? $logo : $setting->logo),
+            'footer_logo'   => (!empty($footer_logo) ? $footer_logo : $setting->footer_logo),
+            'favicon'       => (!empty($favicon) ? $favicon : $setting->favicon),
+            'updated_at'    => Carbon::now(),
+        ]
+     );
        
        toastr('Successfully Updated!', 'success');
        return redirect()->back();
