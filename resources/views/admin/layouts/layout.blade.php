@@ -23,6 +23,7 @@
   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
 
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 
   {{-- Toaster css cdn link --}}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -31,7 +32,6 @@
   <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('public/assets/css/components.css') }}">
   
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
