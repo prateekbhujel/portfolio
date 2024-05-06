@@ -28,7 +28,7 @@
 
         .message {
             background-color: #f9f9f9;
-            border-radius: 10px;
+            border-radius: 14px;
             padding: 20px;
             font-style: italic;
         }
@@ -48,13 +48,14 @@
 </head>
 <body>
     <div class="letter">
-        <p class="salutation">Dear Pratik,</p>
+        <p class="salutation">Message From Portfolio Website:</p>
         <div class="message">
             <p>{{ $mailData['message'] }}</p>
         </div>
         <div class="signature">
             <p>From,</p>
             <p>{{ $mailData['name'] }}</p>
+            <p>{{ $mailData['email'] }}</p>
         </div>
     </div>
 </body>

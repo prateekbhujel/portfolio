@@ -111,5 +111,6 @@ class HomeController extends Controller
         $portfolioItems      = ProtfolioItem::latest()->paginate(8);
 
         return view('frontend.portfolio', compact('portfolioCategories', 'portfolioItems'));
+        
     }//End Method
 }
